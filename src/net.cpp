@@ -1196,6 +1196,7 @@ void MapPort(bool)
 static const char *strMainNetDNSSeed[][2] = {
     /*{"soundcointools.com", "dnsseed.cointools.com"},
     {"soundcoinpool.org", "dnsseed.litecoinpool.org"},*/
+    //{"sagregna.it", "sagregna.it"}
     {NULL, NULL}
 };
 
