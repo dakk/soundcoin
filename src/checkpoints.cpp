@@ -33,10 +33,10 @@ namespace Checkpoints
     //   (no blocks before with a timestamp after, none after with
     //    timestamp before)
     // + Contains no strange transactions
-    //TODO reenable with valid block
+    //TODO insert more blocks
     static MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        (  1, uint256("0x841a2965955dd288cfa707a755d05a54e45f8bd476835ec9af4402a2b59a2967"))
+        (  0, uint256("0xcd846b741aba554f4ffb3073f3ff74f08237e674bfa11d1da17c8fe28de8cd5c"))
         ;
     static const CCheckpointData data = {
         &mapCheckpoints,
