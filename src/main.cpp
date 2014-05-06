@@ -36,7 +36,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0xcd846b741aba554f4ffb3073f3ff74f08237e674bfa11d1da17c8fe28de8cd5c");
+uint256 hashGenesisBlock("853f8f141fafb16f7db69ebd414c7d768b5b5a15f6e328a19af5d8db12c1f864");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Litecoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -69,7 +69,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Litecoin Signed Message:\n";
+const string strMessageMagic = "Soundcoin Signed Message:\n";
 
 double dHashesPerSec = 0.0;
 int64 nHPSTimerStart = 0;
@@ -2772,13 +2772,6 @@ bool InitBlockIndex() {
 
     // Only add the genesis block if not reindexing (in which case we reuse the one already on disk)
     if (!fReindex) {
-        // Genesis Block:
-        //CBlock(hash=12a765e31ffd4059bada, PoW=0000050c34a64b415b6b, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=97ddfbbae6, nTime=1317972665, nBits=1e0ffff0, nNonce=2084524493, vtx=1);
-        //   CTransaction(hash=97ddfbbae6, ver=1, vin.size=1, vout.size=1, nLockTime=0);
-        //   CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104404e592054696d65732030352f4f63742f32303131205374657665204a6f62732c204170706c65e280997320566973696f6e6172792c2044696573206174203536);
-        //     CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
-        //   vMerkleTree: 97ddfbbae6
-
         // Genesis block
         const char* pszTimestamp = "NY Times 02/May/2014 Ukrainians Strike Rebel-Held City as Fighting Spreads";
         CTransaction txNew;
@@ -2792,9 +2785,9 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1398988800;
+        block.nTime    = 1399734000;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 2086725798;
+        block.nNonce   = 2085643846;
 
         if (fTestNet)
         {
@@ -2836,17 +2829,14 @@ bool InitBlockIndex() {
     // Added, generate genesis block
     if (mapBlockIndex.empty())
     {
-        // Genesis block:
-        // block.nTime = 1366559428
-        // block.nNonce = 2085386442
-        // block.GetHash = 384b060671f4a93948e9c168216dadb0ca2fbc54aa11c86b0345b6af1c59b2f5
-        // CBlock(hash=384b060671f4a93948e9, PoW=00000951e146b0026411, ver=1,
-        // hashPrevBlock=00000000000000000000, hashMerkleRoot=5a2e19825b,
-        // nTime=1366559428, nBits=1e0ffff0, nNonce=2085386442, vtx=1)
-        // CTransaction(hash=5a2e19825b, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-        // CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d010441746f646f3a207265706c616365207769746820736f6d657468696e67207468617420656e7375726573206e6f207072656d696e696e6720746f6f6b20706c616365)
-        // CTxOut(error)
-        // vMerkleTree: 5a2e19825b
+block.nTime = 1399734000 
+block.nNonce = 2085643846 
+block.GetHash = 853f8f141fafb16f7db69ebd414c7d768b5b5a15f6e328a19af5d8db12c1f864
+CBlock(hash=853f8f141fafb16f7db69ebd414c7d768b5b5a15f6e328a19af5d8db12c1f864, input=010000000000000000000000000000000000000000000000000000000000000000000000e847816cd58111e60b7c819438ffbeece0c34d7696d565f59992ac287fa8db93f03e6e53f0ff0f1e4666507c, PoW=00000fee4bb65a14fccb3b3a7b349eeb8909e1ebfcb303fb9fa10e26bb73fff9, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=93dba87f28ac9299f565d596764dc3e0ecbeff3894817c0be61181d56c8147e8, nTime=1399734000, nBits=1e0ffff0, nNonce=2085643846, vtx=1)
+  CTransaction(hash=93dba87f28ac9299f565d596764dc3e0ecbeff3894817c0be61181d56c8147e8, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+    CTxIn(COutPoint(0000000000000000000000000000000000000000000000000000000000000000, 4294967295), coinbase 04ffff001d01044a4e592054696d65732030322f4d61792f3230313420556b7261696e69616e7320537472696b6520526562656c2d48656c642043697479206173204669676874696e672053707265616473)
+    CTxOut(nValue=1000.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
+  vMerkleTree: 93dba87f28ac9299f565d596764dc3e0ecbeff3894817c0be61181d56c8147e8
 
             // Genesis block
             const char* pszTimestamp = "NY Times 02/May/2014 Ukrainians Strike Rebel-Held City as Fighting Spreads";
@@ -2861,14 +2851,14 @@ bool InitBlockIndex() {
             block.hashPrevBlock = 0;
             block.hashMerkleRoot = block.BuildMerkleTree();
             block.nVersion = 1;
-            block.nTime = 1398988800;
+            block.nTime = 1399734000;
             block.nBits = 0x1e0ffff0;
             block.nNonce = 2085386442;
 
             if (fTestNet)
             {
-                block.nTime = 1398988800;
-                block.nNonce = 386402991;
+                //block.nTime = 1398988800;
+                //block.nNonce = 386402991;
             }
 
             //// debug print
