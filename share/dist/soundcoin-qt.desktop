@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Soundcoin
+Comment=Soundcoin P2P Cryptocurrency
+Exec=/usr/local/bin/soundcoin-qt
+Terminal=false
+Type=Application
+Icon=/usr/local/share/pixmaps/soundcoin.png
+MimeType=x-scheme-handler/soundcoin;
+Categories=Office;
+Name[en_US]=Soundcoin

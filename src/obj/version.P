@@ -1,0 +1,4 @@
+obj/version.o: version.cpp version.h clientversion.h \
+ /home/dak/Dropbox/ActiveProjects/SoundCoin/soundcoin-qt/src/obj/build.h
+version.cpp version.h clientversion.h :
+ /home/dak/Dropbox/ActiveProjects/SoundCoin/soundcoin-qt/src/obj/build.h :
