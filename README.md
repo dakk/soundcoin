@@ -2,7 +2,7 @@ Soundcoin integration/staging tree
 ================================
 
 ![Soundcoin Logo](https://raw.githubusercontent.com/dakk/soundcoin/master-0.8/share/pixmaps/bitcoin128.png)
-
+http://soundcoin.me
 
 Copyright (c) 2009-2014 Bitcoin Developers<br>
 Copyright (c) 2011-2014 Litecoin Developers<br>
@@ -16,7 +16,7 @@ Soundcoin is a lite version of Bitcoin using scrypt as a proof-of-work algorithm
 with some different parameters.
  - 3 minute block targets
  - subsidy halves in 840k blocks (~4 years)
- - ~500 million total coins
+ - ~5 billion total coins
  - 1000 coins per block
  - 1440 blocks to retarget difficulty
 
