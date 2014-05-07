@@ -12,8 +12,7 @@ Copyright (c) 2014 Soundcoin Developers<br>
 What is Soundcoin?
 ----------------
 
-Soundcoin is a lite version of Bitcoin using scrypt as a proof-of-work algorithm,
-with some different parameters.
+Soundcoin is a fork of Litecoin using scrypt, with some different parameters.
  - 3 minute block targets
  - subsidy halves in 840k blocks (~4 years)
  - ~5 billion total coins
