@@ -20,7 +20,7 @@ using namespace std;
 using namespace boost;
 
 #if defined(NDEBUG)
-# error "Litecoin cannot be compiled without assertions."
+# error "Soundcoin cannot be compiled without assertions."
 #endif
 
 //
@@ -4645,7 +4645,7 @@ void static LitecoinMiner(CWallet *pwallet)
 {
     printf("SoundcoinMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("litecoin-miner");
+    RenameThread("soundcoin-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
