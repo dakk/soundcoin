@@ -1,6 +1,6 @@
 [Protocol]
-exec=bitcoin-qt '%u'
-protocol=bitcoin
+exec=soundcoin-qt '%u'
+protocol=soundcoin
 input=none
 output=none
 helper=true

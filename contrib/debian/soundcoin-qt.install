@@ -1,6 +1,6 @@
-bitcoin-qt usr/bin
-share/pixmaps/bitcoin32.xpm usr/share/pixmaps
-share/pixmaps/bitcoin16.xpm usr/share/pixmaps
-share/pixmaps/bitcoin128.png usr/share/pixmaps
-debian/bitcoin-qt.desktop usr/share/applications
-debian/bitcoin-qt.protocol usr/share/kde4/services/
+soundcoin-qt usr/bin
+share/pixmaps/soundcoin32.xpm usr/share/pixmaps
+share/pixmaps/soundcoin16.xpm usr/share/pixmaps
+share/pixmaps/soundcoin128.png usr/share/pixmaps
+debian/soundcoin-qt.desktop usr/share/applications
+debian/soundcoin-qt.protocol usr/share/kde4/services/
