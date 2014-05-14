@@ -40,7 +40,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x000004fff9b01b854233b004d4bc927f4e0343fccd612a1f046a3928ce429245");
+uint256 hashGenesisBlock("0x0000073a297a599b9f7c9e8c0b42c7f3dd380d07c6e5845be3237ae7747798f6");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Litecoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1089,7 +1089,7 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 1000 * COIN;
+    int64 nSubsidy = 250 * COIN;
 
     // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
     nSubsidy >>= (nHeight / 840000); // Soundcoin: 840k blocks in ~4 years
@@ -2779,21 +2779,21 @@ bool InitBlockIndex() {
     // Only add the genesis block if not reindexing (in which case we reuse the one already on disk)
     if (!fReindex) {
         // Genesis block
-        const char* pszTimestamp = "NY Times 02/May/2014 Ukrainians Strike Rebel-Held City as Fighting Spreads";
+        const char* pszTimestamp = "Repubblica.it - Turchia, inferno in miniera: 'Oltre duecento morti'";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 1000 * COIN;
+        txNew.vout[0].nValue = 250 * COIN;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1399734000;
+        block.nTime    = 1400065200;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 2087753793;
+        block.nNonce   = 2086764999;
 
         if (fTestNet)
         {
@@ -2810,7 +2810,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x93dba87f28ac9299f565d596764dc3e0ecbeff3894817c0be61181d56c8147e8"));
+        assert(block.hashMerkleRoot == uint256("0xb258fe76a4b6c6debc4a82efca3b5f43f1b00ce5cc0494fd750a9217653eaa4d"));
         block.print();
 
         assert(hash == hashGenesisBlock);
@@ -2836,19 +2836,19 @@ bool InitBlockIndex() {
     //if (mapBlockIndex.empty())
     {
             // Genesis block
-            const char* pszTimestamp = "NY Times 02/May/2014 Ukrainians Strike Rebel-Held City as Fighting Spreads";
+            const char* pszTimestamp = "Repubblica.it - Turchia, inferno in miniera: 'Oltre duecento morti'";
             CTransaction txNew;
             txNew.vin.resize(1);
             txNew.vout.resize(1);
             txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-            txNew.vout[0].nValue = 1000 * COIN;
+            txNew.vout[0].nValue = 250 * COIN;
             txNew.vout[0].scriptPubKey = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
             CBlock block;
             block.vtx.push_back(txNew);
             block.hashPrevBlock = 0;
             block.hashMerkleRoot = block.BuildMerkleTree();
             block.nVersion = 1;
-            block.nTime = 1399734000;
+            block.nTime = 1400065200;
             block.nBits = 0x1e0ffff0;
             block.nNonce = 2085386442;
 
