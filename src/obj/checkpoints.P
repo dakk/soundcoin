@@ -1,8 +1,12 @@
 obj/checkpoints.o: checkpoints.cpp checkpoints.h main.h bignum.h util.h \
  uint256.h netbase.h serialize.h allocators.h version.h clientversion.h \
  compat.h sync.h threadsafety.h net.h mruset.h limitedmap.h protocol.h \
- addrman.h hash.h bloom.h script.h keystore.h crypter.h key.h scrypt.h
+ addrman.h hash.h bloom.h script.h keystore.h crypter.h key.h scrypt.h \
+ hashblock.h x11/sph_blake.h x11/sph_types.h x11/sph_bmw.h \
+ x11/sph_groestl.h x11/sph_jh.h x11/sph_keccak.h x11/sph_skein.h
 checkpoints.cpp checkpoints.h main.h bignum.h util.h :
  uint256.h netbase.h serialize.h allocators.h version.h clientversion.h :
  compat.h sync.h threadsafety.h net.h mruset.h limitedmap.h protocol.h :
  addrman.h hash.h bloom.h script.h keystore.h crypter.h key.h scrypt.h :
+ hashblock.h x11/sph_blake.h x11/sph_types.h x11/sph_bmw.h :
+ x11/sph_groestl.h x11/sph_jh.h x11/sph_keccak.h x11/sph_skein.h :

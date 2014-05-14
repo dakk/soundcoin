@@ -1,0 +1,2 @@
+obj/x11/jh.o: x11/jh.c x11/sph_jh.h x11/sph_types.h
+x11/jh.c x11/sph_jh.h x11/sph_types.h :

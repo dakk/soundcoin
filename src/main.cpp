@@ -23,6 +23,10 @@ using namespace boost;
 # error "Soundcoin cannot be compiled without assertions."
 #endif
 
+
+/** Keep uncommented if you want to mine the genesis block */
+//#define GENESIS_BLOCK_MINING
+
 //
 // Global state
 //
@@ -36,7 +40,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("853f8f141fafb16f7db69ebd414c7d768b5b5a15f6e328a19af5d8db12c1f864");
+uint256 hashGenesisBlock("0x000004fff9b01b854233b004d4bc927f4e0343fccd612a1f046a3928ce429245");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Litecoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2770,6 +2774,8 @@ bool InitBlockIndex() {
     pblocktree->WriteFlag("txindex", fTxIndex);
     printf("Initializing databases...\n");
 
+
+#ifndef GENESIS_BLOCK_MINING
     // Only add the genesis block if not reindexing (in which case we reuse the one already on disk)
     if (!fReindex) {
         // Genesis block
@@ -2787,7 +2793,7 @@ bool InitBlockIndex() {
         block.nVersion = 1;
         block.nTime    = 1399734000;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 2085643846;
+        block.nNonce   = 2087753793;
 
         if (fTestNet)
         {
@@ -2825,19 +2831,10 @@ bool InitBlockIndex() {
         }
     }
 
-/*
+#else
     // Added, generate genesis block
-    if (mapBlockIndex.empty())
+    //if (mapBlockIndex.empty())
     {
-block.nTime = 1399734000 
-block.nNonce = 2085643846 
-block.GetHash = 853f8f141fafb16f7db69ebd414c7d768b5b5a15f6e328a19af5d8db12c1f864
-CBlock(hash=853f8f141fafb16f7db69ebd414c7d768b5b5a15f6e328a19af5d8db12c1f864, input=010000000000000000000000000000000000000000000000000000000000000000000000e847816cd58111e60b7c819438ffbeece0c34d7696d565f59992ac287fa8db93f03e6e53f0ff0f1e4666507c, PoW=00000fee4bb65a14fccb3b3a7b349eeb8909e1ebfcb303fb9fa10e26bb73fff9, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=93dba87f28ac9299f565d596764dc3e0ecbeff3894817c0be61181d56c8147e8, nTime=1399734000, nBits=1e0ffff0, nNonce=2085643846, vtx=1)
-  CTransaction(hash=93dba87f28ac9299f565d596764dc3e0ecbeff3894817c0be61181d56c8147e8, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-    CTxIn(COutPoint(0000000000000000000000000000000000000000000000000000000000000000, 4294967295), coinbase 04ffff001d01044a4e592054696d65732030322f4d61792f3230313420556b7261696e69616e7320537472696b6520526562656c2d48656c642043697479206173204669676874696e672053707265616473)
-    CTxOut(nValue=1000.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
-  vMerkleTree: 93dba87f28ac9299f565d596764dc3e0ecbeff3894817c0be61181d56c8147e8
-
             // Genesis block
             const char* pszTimestamp = "NY Times 02/May/2014 Ukrainians Strike Rebel-Held City as Fighting Spreads";
             CTransaction txNew;
@@ -2875,11 +2872,13 @@ CBlock(hash=853f8f141fafb16f7db69ebd414c7d768b5b5a15f6e328a19af5d8db12c1f864, in
                 // creating a different genesis block:
                 uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
                 uint256 thash;
-                char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
+                //char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
 
                 loop
                 {
-                    scrypt_1024_1_1_256_sp(BEGIN(block.nVersion), BEGIN(thash), scratchpad);
+                    thash = block.GetHash ();
+                    //scrypt_1024_1_1_256_sp(BEGIN(block.nVersion), BEGIN(thash), scratchpad);
+
                     if (thash <= hashTarget)
                         break;
                     if ((block.nNonce & 0xFFF) == 0)
@@ -2899,9 +2898,9 @@ CBlock(hash=853f8f141fafb16f7db69ebd414c7d768b5b5a15f6e328a19af5d8db12c1f864, in
             }
 
             block.print();
-            assert(block.GetHash() == hashGenesisBlock);
+            exit (0);//assert(block.GetHash() == hashGenesisBlock);
         }
-*/
+#endif
 
 
     return true;
@@ -4694,10 +4693,11 @@ void static LitecoinMiner(CWallet *pwallet)
             unsigned int nHashesDone = 0;
 
             uint256 thash;
-            char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
+            //char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
             loop
             {
-                scrypt_1024_1_1_256_sp(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
+                //scrypt_1024_1_1_256_sp(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
+                thash = pblock->GetHash();
 
                 if (thash <= hashTarget)
                 {

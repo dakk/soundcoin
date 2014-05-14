@@ -1,7 +1,9 @@
 obj/txdb.o: txdb.cpp txdb.h main.h bignum.h util.h uint256.h netbase.h \
  serialize.h allocators.h version.h clientversion.h compat.h sync.h \
  threadsafety.h net.h mruset.h limitedmap.h protocol.h addrman.h hash.h \
- bloom.h script.h keystore.h crypter.h key.h scrypt.h leveldb.h \
+ bloom.h script.h keystore.h crypter.h key.h scrypt.h hashblock.h \
+ x11/sph_blake.h x11/sph_types.h x11/sph_bmw.h x11/sph_groestl.h \
+ x11/sph_jh.h x11/sph_keccak.h x11/sph_skein.h leveldb.h \
  /home/dak/Dropbox/ActiveProjects/SoundCoin/client/soundcoin/src/leveldb/include/leveldb/db.h \
  /home/dak/Dropbox/ActiveProjects/SoundCoin/client/soundcoin/src/leveldb/include/leveldb/iterator.h \
  /home/dak/Dropbox/ActiveProjects/SoundCoin/client/soundcoin/src/leveldb/include/leveldb/slice.h \
@@ -11,7 +13,9 @@ obj/txdb.o: txdb.cpp txdb.h main.h bignum.h util.h uint256.h netbase.h \
 txdb.cpp txdb.h main.h bignum.h util.h uint256.h netbase.h :
  serialize.h allocators.h version.h clientversion.h compat.h sync.h :
  threadsafety.h net.h mruset.h limitedmap.h protocol.h addrman.h hash.h :
- bloom.h script.h keystore.h crypter.h key.h scrypt.h leveldb.h :
+ bloom.h script.h keystore.h crypter.h key.h scrypt.h hashblock.h :
+ x11/sph_blake.h x11/sph_types.h x11/sph_bmw.h x11/sph_groestl.h :
+ x11/sph_jh.h x11/sph_keccak.h x11/sph_skein.h leveldb.h :
  /home/dak/Dropbox/ActiveProjects/SoundCoin/client/soundcoin/src/leveldb/include/leveldb/db.h :
  /home/dak/Dropbox/ActiveProjects/SoundCoin/client/soundcoin/src/leveldb/include/leveldb/iterator.h :
  /home/dak/Dropbox/ActiveProjects/SoundCoin/client/soundcoin/src/leveldb/include/leveldb/slice.h :

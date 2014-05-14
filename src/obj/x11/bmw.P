@@ -1,0 +1,2 @@
+obj/x11/bmw.o: x11/bmw.c x11/sph_bmw.h x11/sph_types.h
+x11/bmw.c x11/sph_bmw.h x11/sph_types.h :

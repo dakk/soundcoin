@@ -1,0 +1,2 @@
+obj/x11/keccak.o: x11/keccak.c x11/sph_keccak.h x11/sph_types.h
+x11/keccak.c x11/sph_keccak.h x11/sph_types.h :

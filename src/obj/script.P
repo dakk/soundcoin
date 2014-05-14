@@ -1,8 +1,12 @@
 obj/script.o: script.cpp script.h keystore.h crypter.h allocators.h key.h \
  serialize.h version.h clientversion.h uint256.h hash.h sync.h \
  threadsafety.h bignum.h util.h netbase.h compat.h main.h net.h mruset.h \
- limitedmap.h protocol.h addrman.h bloom.h scrypt.h
+ limitedmap.h protocol.h addrman.h bloom.h scrypt.h hashblock.h \
+ x11/sph_blake.h x11/sph_types.h x11/sph_bmw.h x11/sph_groestl.h \
+ x11/sph_jh.h x11/sph_keccak.h x11/sph_skein.h
 script.cpp script.h keystore.h crypter.h allocators.h key.h :
  serialize.h version.h clientversion.h uint256.h hash.h sync.h :
  threadsafety.h bignum.h util.h netbase.h compat.h main.h net.h mruset.h :
- limitedmap.h protocol.h addrman.h bloom.h scrypt.h :
+ limitedmap.h protocol.h addrman.h bloom.h scrypt.h hashblock.h :
+ x11/sph_blake.h x11/sph_types.h x11/sph_bmw.h x11/sph_groestl.h :
+ x11/sph_jh.h x11/sph_keccak.h x11/sph_skein.h :

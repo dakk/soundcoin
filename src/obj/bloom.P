@@ -1,8 +1,12 @@
 obj/bloom.o: bloom.cpp bloom.h uint256.h serialize.h allocators.h \
  version.h clientversion.h main.h bignum.h util.h netbase.h compat.h \
  sync.h threadsafety.h net.h mruset.h limitedmap.h protocol.h addrman.h \
- hash.h script.h keystore.h crypter.h key.h scrypt.h
+ hash.h script.h keystore.h crypter.h key.h scrypt.h hashblock.h \
+ x11/sph_blake.h x11/sph_types.h x11/sph_bmw.h x11/sph_groestl.h \
+ x11/sph_jh.h x11/sph_keccak.h x11/sph_skein.h
 bloom.cpp bloom.h uint256.h serialize.h allocators.h :
  version.h clientversion.h main.h bignum.h util.h netbase.h compat.h :
  sync.h threadsafety.h net.h mruset.h limitedmap.h protocol.h addrman.h :
- hash.h script.h keystore.h crypter.h key.h scrypt.h :
+ hash.h script.h keystore.h crypter.h key.h scrypt.h hashblock.h :
+ x11/sph_blake.h x11/sph_types.h x11/sph_bmw.h x11/sph_groestl.h :
+ x11/sph_jh.h x11/sph_keccak.h x11/sph_skein.h :

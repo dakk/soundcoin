@@ -1,0 +1,2 @@
+obj/x11/skein.o: x11/skein.c x11/sph_skein.h x11/sph_types.h
+x11/skein.c x11/sph_skein.h x11/sph_types.h :

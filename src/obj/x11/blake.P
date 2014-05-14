@@ -1,0 +1,2 @@
+obj/x11/blake.o: x11/blake.c x11/sph_blake.h x11/sph_types.h
+x11/blake.c x11/sph_blake.h x11/sph_types.h :

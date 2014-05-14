@@ -222,7 +222,16 @@ HEADERS += src/qt/bitcoingui.h \
     src/threadsafety.h \
     src/limitedmap.h \
     src/qt/macnotificationhandler.h \
-    src/qt/splashscreen.h
+    src/qt/splashscreen.h \
+    src/x11/sph_blake.h \
+    src/x11/sph_bmw.h \
+    src/x11/sph_groestl.h \
+    src/x11/sph_jh.h \
+    src/x11/sph_keccak.h \
+    src/x11/sph_skein.h \
+    src/x11/sph_types.h
+
+
 
 SOURCES += src/qt/bitcoin.cpp \
     src/qt/bitcoingui.cpp \
@@ -293,7 +302,13 @@ SOURCES += src/qt/bitcoin.cpp \
     src/noui.cpp \
     src/leveldb.cpp \
     src/txdb.cpp \
-    src/qt/splashscreen.cpp
+    src/qt/splashscreen.cpp \
+    src/x11/blake.c \
+    src/x11/bmw.c \
+    src/x11/groestl.c \
+    src/x11/jh.c \
+    src/x11/keccak.c \
+    src/x11/skein.c
 
 RESOURCES += src/qt/bitcoin.qrc
 
