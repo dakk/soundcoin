@@ -3,7 +3,7 @@ TARGET = soundcoin-qt
 macx:TARGET = "Soundcoin-Qt"
 VERSION = 0.8.7.1
 INCLUDEPATH += src src/json src/qt
-QT += core gui network
+QT += core gui network webkit
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
@@ -229,7 +229,8 @@ HEADERS += src/qt/bitcoingui.h \
     src/x11/sph_jh.h \
     src/x11/sph_keccak.h \
     src/x11/sph_skein.h \
-    src/x11/sph_types.h
+    src/x11/sph_types.h \
+    src/qt/newspage.h
 
 
 
@@ -308,7 +309,8 @@ SOURCES += src/qt/bitcoin.cpp \
     src/x11/groestl.c \
     src/x11/jh.c \
     src/x11/keccak.c \
-    src/x11/skein.c
+    src/x11/skein.c \
+    src/qt/newspage.cpp
 
 RESOURCES += src/qt/bitcoin.qrc
 
@@ -323,7 +325,8 @@ FORMS += src/qt/forms/sendcoinsdialog.ui \
     src/qt/forms/sendcoinsentry.ui \
     src/qt/forms/askpassphrasedialog.ui \
     src/qt/forms/rpcconsole.ui \
-    src/qt/forms/optionsdialog.ui
+    src/qt/forms/optionsdialog.ui \
+    src/qt/forms/newspage.ui
 
 contains(USE_QRCODE, 1) {
 HEADERS += src/qt/qrcodedialog.h

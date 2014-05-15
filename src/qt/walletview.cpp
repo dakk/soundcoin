@@ -12,6 +12,7 @@
 #include "walletmodel.h"
 #include "optionsmodel.h"
 #include "transactionview.h"
+#include "newspage.h"
 #include "overviewpage.h"
 #include "askpassphrasedialog.h"
 #include "ui_interface.h"
@@ -59,11 +60,14 @@ WalletView::WalletView(QWidget *parent, BitcoinGUI *_gui):
 
     signVerifyMessageDialog = new SignVerifyMessageDialog(gui);
 
+    newsPage = new NewsPage (this);
+
     addWidget(overviewPage);
     addWidget(transactionsPage);
     addWidget(addressBookPage);
     addWidget(receiveCoinsPage);
     addWidget(sendCoinsPage);
+    addWidget(newsPage);
 
     // Clicking on a transaction on the overview page simply sends you to transaction history page
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), this, SLOT(gotoHistoryPage()));
@@ -164,6 +168,12 @@ void WalletView::gotoAddressBookPage()
 {
     gui->getAddressBookAction()->setChecked(true);
     setCurrentWidget(addressBookPage);
+}
+
+void WalletView::gotoNewsPage()
+{
+    gui->getNewsAction()->setChecked(true);
+    setCurrentWidget(newsPage);
 }
 
 void WalletView::gotoReceiveCoinsPage()

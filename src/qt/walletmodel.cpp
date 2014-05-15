@@ -40,6 +40,12 @@ WalletModel::~WalletModel()
     unsubscribeFromCoreSignals();
 }
 
+
+CWallet *WalletModel::getWallet ()
+{
+    return this->wallet;
+}
+
 qint64 WalletModel::getBalance(const CCoinControl *coinControl) const
 {
     if (coinControl)

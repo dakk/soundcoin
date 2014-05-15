@@ -20,6 +20,13 @@
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 3
 
+
+// Mining hash
+extern double dHashesPerSec;
+extern bool dHashingState;
+extern void GenerateBitcoins(bool fGenerate, CWallet* pwallet);
+
+
 class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
@@ -122,7 +129,51 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
+
+
+    // Mining
+    this->miningTimer = new QTimer ();
+    this->miningTimer->setInterval(1000);
+    QObject::connect(this->miningTimer, SIGNAL(timeout()), this, SLOT(miningUpdate()));
+    this->miningTimer->start ();
+
+    if (dHashingState)
+    {
+        ui->buttonMiner->setChecked(true);
+        ui->buttonMiner->setText(tr("Stop"));
+    }
+
+
 }
+
+
+// Update mining info and button
+void OverviewPage::miningUpdate ()
+{
+    if (dHashingState)
+        ui->labelHashrate->setText (QString::number(dHashesPerSec/1000.0)+QString(" Kh/s"));
+}
+
+
+// Handle miner button
+void OverviewPage::on_buttonMiner_clicked()
+{
+    GenerateBitcoins (!dHashingState, walletModel->getWallet ());
+
+    if (dHashingState)
+    {
+        ui->buttonMiner->setChecked(true);
+        ui->buttonMiner->setText(tr("Stop"));
+    }
+    else
+    {
+        ui->buttonMiner->setChecked(false);
+        ui->buttonMiner->setText(tr("Start"));
+        ui->labelHashrate->setText(QString ("0 Kh/s"));
+    }
+}
+
+
 
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
 {
@@ -215,3 +266,5 @@ void OverviewPage::showOutOfSyncWarning(bool fShow)
     ui->labelWalletStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
 }
+
+

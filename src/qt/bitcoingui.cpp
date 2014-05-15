@@ -9,6 +9,7 @@
 #include "transactiontablemodel.h"
 #include "optionsdialog.h"
 #include "aboutdialog.h"
+#include "newspage.h"
 #include "clientmodel.h"
 #include "walletmodel.h"
 #include "walletframe.h"
@@ -200,6 +201,13 @@ void BitcoinGUI::createActions()
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
+    newsAction = new QAction(QIcon(":/icons/news"), tr("&News"), this);
+    newsAction->setStatusTip(tr("View news and quotations about Soundcoin"));
+    newsAction->setToolTip(newsAction->statusTip());
+    newsAction->setCheckable(true);
+    newsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
+    tabGroup->addAction(newsAction);
+
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
     connect(sendCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -210,6 +218,8 @@ void BitcoinGUI::createActions()
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(gotoAddressBookPage()));
+    connect(newsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(newsAction, SIGNAL(triggered()), this, SLOT(gotoNewsPage()));
 
     quitAction = new QAction(QIcon(":/icons/quit"), tr("E&xit"), this);
     quitAction->setStatusTip(tr("Quit application"));
@@ -294,6 +304,7 @@ void BitcoinGUI::createToolBars()
     toolbar->addAction(receiveCoinsAction);
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
+    toolbar->addAction(newsAction);
 }
 
 void BitcoinGUI::setClientModel(ClientModel *clientModel)
@@ -370,6 +381,7 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled)
     signMessageAction->setEnabled(enabled);
     verifyMessageAction->setEnabled(enabled);
     addressBookAction->setEnabled(enabled);
+    newsAction->setEnabled(enabled);
 }
 
 void BitcoinGUI::createTrayIcon()
@@ -484,6 +496,11 @@ void BitcoinGUI::gotoHistoryPage()
 void BitcoinGUI::gotoAddressBookPage()
 {
     if (walletFrame) walletFrame->gotoAddressBookPage();
+}
+
+void BitcoinGUI::gotoNewsPage()
+{
+    if (walletFrame) walletFrame->gotoNewsPage();
 }
 
 void BitcoinGUI::gotoReceiveCoinsPage()

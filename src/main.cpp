@@ -76,6 +76,7 @@ CScript COINBASE_FLAGS;
 const string strMessageMagic = "Soundcoin Signed Message:\n";
 
 double dHashesPerSec = 0.0;
+bool dHashingState = false;
 int64 nHPSTimerStart = 0;
 
 // Settings
@@ -2850,7 +2851,7 @@ bool InitBlockIndex() {
             block.nVersion = 1;
             block.nTime = 1400065200;
             block.nBits = 0x1e0ffff0;
-            block.nNonce = 2085386442;
+            block.nNonce = 2086764999;
 
             if (fTestNet)
             {
@@ -4785,6 +4786,8 @@ void GenerateBitcoins(bool fGenerate, CWallet* pwallet)
         delete minerThreads;
         minerThreads = NULL;
     }
+
+    dHashingState = fGenerate;
 
     if (nThreads == 0 || !fGenerate)
         return;

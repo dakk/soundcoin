@@ -6,6 +6,7 @@
 #define OVERVIEWPAGE_H
 
 #include <QWidget>
+#include <QTimer>
 
 namespace Ui {
     class OverviewPage;
@@ -48,11 +49,14 @@ private:
 
     TxViewDelegate *txdelegate;
     TransactionFilterProxy *filter;
+    QTimer *miningTimer;
 
 private slots:
     void updateDisplayUnit();
     void handleTransactionClicked(const QModelIndex &index);
     void updateAlerts(const QString &warnings);
+    void on_buttonMiner_clicked();
+    void miningUpdate ();
 };
 
 #endif // OVERVIEWPAGE_H
