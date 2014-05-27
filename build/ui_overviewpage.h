@@ -15,10 +15,12 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QFormLayout>
 #include <QtGui/QFrame>
+#include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QListView>
+#include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
@@ -28,10 +30,8 @@ QT_BEGIN_NAMESPACE
 class Ui_OverviewPage
 {
 public:
-    QVBoxLayout *topLayout;
     QLabel *labelAlerts;
-    QHBoxLayout *horizontalLayout;
-    QVBoxLayout *verticalLayout_2;
+    QGridLayout *gridLayout;
     QFrame *frame;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_4;
@@ -45,7 +45,6 @@ public:
     QLabel *labelUnconfirmed;
     QLabel *labelImmatureText;
     QLabel *labelImmature;
-    QSpacerItem *verticalSpacer;
     QVBoxLayout *verticalLayout_3;
     QFrame *frame_2;
     QVBoxLayout *verticalLayout;
@@ -55,27 +54,32 @@ public:
     QSpacerItem *horizontalSpacer;
     QListView *listTransactions;
     QSpacerItem *verticalSpacer_2;
+    QFrame *frame_3;
+    QVBoxLayout *verticalLayout_5;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *label_6;
+    QSpacerItem *horizontalSpacer_3;
+    QFormLayout *formLayout_3;
+    QLabel *label_2;
+    QPushButton *buttonMiner;
+    QLabel *label_7;
+    QLabel *labelHashrate;
+    QSpacerItem *verticalSpacer;
 
     void setupUi(QWidget *OverviewPage)
     {
         if (OverviewPage->objectName().isEmpty())
             OverviewPage->setObjectName(QString::fromUtf8("OverviewPage"));
         OverviewPage->resize(573, 342);
-        topLayout = new QVBoxLayout(OverviewPage);
-        topLayout->setObjectName(QString::fromUtf8("topLayout"));
         labelAlerts = new QLabel(OverviewPage);
         labelAlerts->setObjectName(QString::fromUtf8("labelAlerts"));
+        labelAlerts->setGeometry(QRect(0, 0, 16, 20));
         labelAlerts->setVisible(false);
         labelAlerts->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop:0 #F0D0A0, stop:1 #F8D488); color:#000000;"));
         labelAlerts->setWordWrap(true);
         labelAlerts->setMargin(3);
-
-        topLayout->addWidget(labelAlerts);
-
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        gridLayout = new QGridLayout(OverviewPage);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         frame = new QFrame(OverviewPage);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setFrameShape(QFrame::StyledPanel);
@@ -158,14 +162,7 @@ public:
         verticalLayout_4->addLayout(formLayout_2);
 
 
-        verticalLayout_2->addWidget(frame);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_2->addItem(verticalSpacer);
-
-
-        horizontalLayout->addLayout(verticalLayout_2);
+        gridLayout->addWidget(frame, 0, 0, 1, 1);
 
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
@@ -215,12 +212,69 @@ public:
         verticalLayout_3->addItem(verticalSpacer_2);
 
 
-        horizontalLayout->addLayout(verticalLayout_3);
+        gridLayout->addLayout(verticalLayout_3, 0, 1, 3, 1);
 
-        horizontalLayout->setStretch(0, 1);
-        horizontalLayout->setStretch(1, 1);
+        frame_3 = new QFrame(OverviewPage);
+        frame_3->setObjectName(QString::fromUtf8("frame_3"));
+        frame_3->setEnabled(true);
+        frame_3->setFrameShape(QFrame::StyledPanel);
+        frame_3->setFrameShadow(QFrame::Raised);
+        verticalLayout_5 = new QVBoxLayout(frame_3);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        label_6 = new QLabel(frame_3);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setFont(font);
 
-        topLayout->addLayout(horizontalLayout);
+        horizontalLayout_5->addWidget(label_6);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_5->addItem(horizontalSpacer_3);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_5);
+
+        formLayout_3 = new QFormLayout();
+        formLayout_3->setObjectName(QString::fromUtf8("formLayout_3"));
+        formLayout_3->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
+        formLayout_3->setHorizontalSpacing(12);
+        formLayout_3->setVerticalSpacing(12);
+        label_2 = new QLabel(frame_3);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        formLayout_3->setWidget(1, QFormLayout::LabelRole, label_2);
+
+        buttonMiner = new QPushButton(frame_3);
+        buttonMiner->setObjectName(QString::fromUtf8("buttonMiner"));
+        buttonMiner->setCheckable(true);
+
+        formLayout_3->setWidget(1, QFormLayout::FieldRole, buttonMiner);
+
+        label_7 = new QLabel(frame_3);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+
+        formLayout_3->setWidget(2, QFormLayout::LabelRole, label_7);
+
+        labelHashrate = new QLabel(frame_3);
+        labelHashrate->setObjectName(QString::fromUtf8("labelHashrate"));
+        labelHashrate->setFont(font);
+        labelHashrate->setCursor(QCursor(Qt::IBeamCursor));
+        labelHashrate->setText(QString::fromUtf8("0 Kh/s"));
+        labelHashrate->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
+
+        formLayout_3->setWidget(2, QFormLayout::FieldRole, labelHashrate);
+
+
+        verticalLayout_5->addLayout(formLayout_3);
+
+
+        gridLayout->addWidget(frame_3, 1, 0, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 76, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 2, 0, 1, 1);
 
 
         retranslateUi(OverviewPage);
@@ -250,6 +304,13 @@ public:
         label_4->setText(QApplication::translate("OverviewPage", "<b>Recent transactions</b>", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         labelTransactionsStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the Soundcoin network after a connection is established, but this process has not completed yet.", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
+        label_6->setText(QApplication::translate("OverviewPage", "Miner", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("OverviewPage", "Satus:", 0, QApplication::UnicodeUTF8));
+        buttonMiner->setText(QApplication::translate("OverviewPage", "Start", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("OverviewPage", "Hash rate:", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        labelHashrate->setToolTip(QApplication::translate("OverviewPage", "Total of transactions that have yet to be confirmed, and do not yet count toward the current balance", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
     } // retranslateUi
 

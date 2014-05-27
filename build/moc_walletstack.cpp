@@ -22,7 +22,7 @@ static const uint qt_meta_data_WalletStack[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      17,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -35,17 +35,18 @@ static const uint qt_meta_data_WalletStack[] = {
       63,   12,   12,   12, 0x0a,
       81,   12,   12,   12, 0x0a,
      103,   12,   12,   12, 0x0a,
-     131,  126,   12,   12, 0x0a,
-     158,   12,   12,   12, 0x2a,
-     178,  126,   12,   12, 0x0a,
-     206,   12,   12,   12, 0x2a,
-     227,  126,   12,   12, 0x0a,
-     257,   12,   12,   12, 0x2a,
-     287,  280,   12,   12, 0x0a,
-     307,   12,   12,   12, 0x0a,
+     118,   12,   12,   12, 0x0a,
+     146,  141,   12,   12, 0x0a,
+     173,   12,   12,   12, 0x2a,
+     193,  141,   12,   12, 0x0a,
+     221,   12,   12,   12, 0x2a,
+     242,  141,   12,   12, 0x0a,
+     272,   12,   12,   12, 0x2a,
+     302,  295,   12,   12, 0x0a,
      322,   12,   12,   12, 0x0a,
-     341,   12,   12,   12, 0x0a,
+     337,   12,   12,   12, 0x0a,
      356,   12,   12,   12, 0x0a,
+     371,   12,   12,   12, 0x0a,
 
        0        // eod
 };
@@ -53,8 +54,9 @@ static const uint qt_meta_data_WalletStack[] = {
 static const char qt_meta_stringdata_WalletStack[] = {
     "WalletStack\0\0name\0setCurrentWallet(QString)\0"
     "gotoOverviewPage()\0gotoHistoryPage()\0"
-    "gotoAddressBookPage()\0gotoReceiveCoinsPage()\0"
-    "addr\0gotoSendCoinsPage(QString)\0"
+    "gotoAddressBookPage()\0gotoNewsPage()\0"
+    "gotoReceiveCoinsPage()\0addr\0"
+    "gotoSendCoinsPage(QString)\0"
     "gotoSendCoinsPage()\0gotoSignMessageTab(QString)\0"
     "gotoSignMessageTab()\0gotoVerifyMessageTab(QString)\0"
     "gotoVerifyMessageTab()\0status\0"
@@ -73,18 +75,19 @@ void WalletStack::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 1: _t->gotoOverviewPage(); break;
         case 2: _t->gotoHistoryPage(); break;
         case 3: _t->gotoAddressBookPage(); break;
-        case 4: _t->gotoReceiveCoinsPage(); break;
-        case 5: _t->gotoSendCoinsPage((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 6: _t->gotoSendCoinsPage(); break;
-        case 7: _t->gotoSignMessageTab((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 8: _t->gotoSignMessageTab(); break;
-        case 9: _t->gotoVerifyMessageTab((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 10: _t->gotoVerifyMessageTab(); break;
-        case 11: _t->encryptWallet((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 12: _t->backupWallet(); break;
-        case 13: _t->changePassphrase(); break;
-        case 14: _t->unlockWallet(); break;
-        case 15: _t->setEncryptionStatus(); break;
+        case 4: _t->gotoNewsPage(); break;
+        case 5: _t->gotoReceiveCoinsPage(); break;
+        case 6: _t->gotoSendCoinsPage((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 7: _t->gotoSendCoinsPage(); break;
+        case 8: _t->gotoSignMessageTab((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 9: _t->gotoSignMessageTab(); break;
+        case 10: _t->gotoVerifyMessageTab((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 11: _t->gotoVerifyMessageTab(); break;
+        case 12: _t->encryptWallet((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 13: _t->backupWallet(); break;
+        case 14: _t->changePassphrase(); break;
+        case 15: _t->unlockWallet(); break;
+        case 16: _t->setEncryptionStatus(); break;
         default: ;
         }
     }
@@ -122,9 +125,9 @@ int WalletStack::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 17)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 17;
     }
     return _id;
 }
